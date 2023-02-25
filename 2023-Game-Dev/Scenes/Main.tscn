@@ -13,6 +13,7 @@ sky_material = SubResource("ProceduralSkyMaterial_fw86e")
 [sub_resource type="Environment" id="Environment_abhp4"]
 background_mode = 2
 sky = SubResource("Sky_6j6ta")
+sky_rotation = Vector3(-0.0174533, 0, 0)
 tonemap_mode = 2
 glow_enabled = true
 
@@ -33,7 +34,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 environment = SubResource("Environment_abhp4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 2.5148, 0)
+transform = Transform3D(0.969616, 0.211857, -0.122315, 0, 0.5, 0.866025, 0.244631, -0.839712, 0.484808, 0, 7.48534, 16.613)
 shadow_enabled = true
 
 [node name="Ground" type="MeshInstance3D" parent="."]
@@ -47,4 +48,4 @@ mesh = SubResource("BoxMesh_2ajl2")
 shape = SubResource("ConcavePolygonShape3D_x4rjg")
 
 [node name="Node3D" parent="." instance=ExtResource("1_5e8l4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0478323, 0.0121434, 0.50229)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0478323, 1.03689, 11.0702)

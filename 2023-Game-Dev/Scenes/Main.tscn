@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://0dpnq5s7hxnw"]
+[gd_scene load_steps=11 format=3 uid="uid://0dpnq5s7hxnw"]
 
 [ext_resource type="PackedScene" uid="uid://hkknswtm7lby" path="res://Scenes/Player/Player.tscn" id="1_5e8l4"]
 [ext_resource type="Texture2D" uid="uid://baswqeiy0eo2q" path="res://Textures/Prototype/PNG/Dark/texture_01.png" id="1_bitjc"]
+[ext_resource type="PackedScene" uid="uid://f6vo14ftv5ao" path="res://Scenes/box.tscn" id="3_r4w2t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fw86e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,3 +50,9 @@ shape = SubResource("ConcavePolygonShape3D_x4rjg")
 
 [node name="Node3D" parent="." instance=ExtResource("1_5e8l4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0478323, 1.03689, 11.0702)
+
+[node name="Box" parent="." instance=ExtResource("3_r4w2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.605259, -3)
+
+[node name="Box2" parent="." instance=ExtResource("3_r4w2t")]
+transform = Transform3D(3.8996, -0.0575, 0.13063, 1.6268e-07, 1.68223, 1.85256, -0.191677, -1.16981, 2.65762, -4.42156, 0.0240409, -12.287)

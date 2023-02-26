@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const WALK_SPEED: float = 5.0
+const WALK_SPEED: float = 7.0
 const SPRINT_MULTIPLIER: float = 2.0
 const CROUCH_MULTIPLIER: float = 0.5
 const TERMINAL_GRAVITATIONAL_VELOCITY := -53.0
@@ -54,6 +54,7 @@ var request_jump: bool = false
 # Camera 
 @onready var cam_root := $CamRoot
 @onready var camera := $CamRoot/Camera
+@onready var collider = $CollisionShape3D
 
 
 func _ready():
@@ -73,6 +74,12 @@ func _ready():
 
 func _unhandled_input(event: InputEvent) -> void:
 	
+	if event is InputEventMouseButton:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif event.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+
 	input_dir = Vector3.ZERO
 	way_facing = cam_root.rotation.y
 	
@@ -208,8 +215,7 @@ func air_move(delta):
 	# Actually move the player.
 	move_and_slide()
 
-func jump() -> void:
-	"""Launches the player vertically."""
+func jump():
 	gravity_vector = Vector3.UP * JUMP_POWER
 
 func process_camera_rotation(relative_mouse_motion) -> void:
@@ -238,6 +244,25 @@ func process_camera_position() -> void:
 #		camera.global_position = camera.global_position.lerp(Vector3(0, 1, 0), CROUCH_TRANSITION_SPEED)
 #	else:
 #		camera.global_position = camera.global_position.lerp(Vector3(0, 2, 0), CROUCH_TRANSITION_SPEED)
+
+func handle_crouching() -> void:
+	
+	# Change colliders when crouching TODO explain
+	# Head movement is 
+	if request_crouching or is_head_bonked:
+		current_collider_height -= CROUCH_TRANSITION_SPEED
+		#head.translation = head.translation.linear_interpolate(Vector3(0, 1.25, 0), CROUCH_TRANSITION_SPEED)
+	else:
+		current_collider_height += CROUCH_TRANSITION_SPEED
+		#head.translation = head.translation.linear_interpolate(Vector3(0, 1.8, 0), CROUCH_TRANSITION_SPEED)
+	
+	# Crouch and regular height determine the shortest and highest we can stand, respectively.
+	current_collider_height = clamp(current_collider_height, COLLIDER_CROUCH_HEIGHT, COLLIDER_REGULAR_HEIGHT)
+	
+	collider.shape.size = Vector3(0.3, current_collider_height, 0.3)
+	
+# Used instead of clamp() so that the vector in question is limited
+# to a circle instead of a square.
 
 func _physics_process(delta):
 	check_movement_state()

@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccptf1q8g1ia4"]
+
+[ext_resource type="Script" path="res://scenes/Menu.gd" id="1_pa2md"]
+[ext_resource type="VideoStream" path="res://sounds/output.ogv" id="2_5usue"]
+[ext_resource type="Texture2D" uid="uid://cgvd2mhh0885l" path="res://images/DarkRoom.jpg" id="2_7cs5o"]
+[ext_resource type="FontFile" uid="uid://oum5wi20deqx" path="res://usuzi.ttf" id="2_gpb86"]
+[ext_resource type="Script" path="res://scripts/videostreamplayer.gd" id="3_2ocnb"]
+[ext_resource type="Texture2D" uid="uid://bevwsdgirf7r3" path="res://images/Title.png" id="4_4glqm"]
+[ext_resource type="Texture2D" uid="uid://baq1q5jj8iv7o" path="res://images/agameby.png" id="5_jgvro"]
+[ext_resource type="Texture2D" uid="uid://bomatyltj8fcd" path="res://images/gearhead.png" id="6_skl5r"]
+[ext_resource type="AudioStream" uid="uid://dq6h8dbdaqomy" path="res://sounds/Sons of the Forest Original Game Soundtrack - Main Theme.mp3" id="7_oy3xo"]
+[ext_resource type="Texture2D" uid="uid://kyyef7cal1ib" path="res://images/logo.png" id="10_yyaht"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pa2md")
+
+[node name="DarkRoom" type="Sprite2D" parent="."]
+position = Vector2(962, 541)
+texture = ExtResource("2_7cs5o")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 1922.0
+offset_bottom = 1085.0
+stream = ExtResource("2_5usue")
+autoplay = true
+script = ExtResource("3_2ocnb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oy3xo")
+volume_db = -0.05
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 422.0
+offset_right = 512.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_fonts/font = ExtResource("2_gpb86")
+theme_override_font_sizes/font_size = 100
+text = "Play"
+flat = true
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_fonts/font = ExtResource("2_gpb86")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+flat = true
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_fonts/font = ExtResource("2_gpb86")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+flat = true
+
+[node name="Title" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(774.073, 103.812)
+scale = Vector2(0.424488, 0.424488)
+texture = ExtResource("4_4glqm")
+
+[node name="Agameby" type="Sprite2D" parent="."]
+position = Vector2(1724, 948)
+scale = Vector2(0.234183, 0.234183)
+texture = ExtResource("5_jgvro")
+
+[node name="Gearhead" type="Sprite2D" parent="."]
+position = Vector2(1700, 1000)
+scale = Vector2(0.152667, 0.152667)
+texture = ExtResource("6_skl5r")
+
+[node name="Logo2" type="Sprite2D" parent="."]
+position = Vector2(912, 84)
+scale = Vector2(0.493421, 0.493421)
+texture = ExtResource("10_yyaht")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

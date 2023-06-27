@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq6h8dbdaqomy"
+path="res://.godot/imported/Sons of the Forest Original Game Soundtrack - Main Theme.mp3-3e7750550b2da06085a0ac3af2ad8afd.mp3str"
+
+[deps]
+
+source_file="res://sounds/Sons of the Forest Original Game Soundtrack - Main Theme.mp3"
+dest_files=["res://.godot/imported/Sons of the Forest Original Game Soundtrack - Main Theme.mp3-3e7750550b2da06085a0ac3af2ad8afd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

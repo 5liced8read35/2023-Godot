@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://ceh01r8pyftte"]
+
+[ext_resource type="PackedScene" uid="uid://kqsxuguvtlfw" path="res://scenes/player.tscn" id="1_y2pk6"]
+[ext_resource type="PackedScene" uid="uid://dnr147v6m4tsk" path="res://scenes/projectile_manager.tscn" id="2_4ne08"]
+[ext_resource type="Resource" uid="uid://cqq6s264brqh7" path="res://data/projectiles/762x39.tres" id="3_l4tje"]
+[ext_resource type="PackedScene" uid="uid://dnpuxn7m3d1t6" path="res://models/Room.glb" id="4_0lfk2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cnvxc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cs1bb"]
+sky_material = SubResource("ProceduralSkyMaterial_cnvxc")
+
+[sub_resource type="Environment" id="Environment_754ug"]
+background_mode = 2
+sky = SubResource("Sky_cs1bb")
+ambient_light_source = 1
+ambient_light_energy = 1.01
+reflected_light_source = 2
+tonemap_mode = 2
+volumetric_fog_density = 0.0289
+adjustment_enabled = true
+adjustment_brightness = 0.99
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_er5fw"]
+size = Vector3(60, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kjaj"]
+albedo_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3pp4y"]
+material = SubResource("StandardMaterial3D_3kjaj")
+size = Vector3(60, 1, 20)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_754ug")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.406069, -0.190733, -0.893716, -0.714316, 0.676214, 0.180242, 0.569965, 0.711587, -0.410833, 0, 3.96482, 0)
+light_energy = 0.192
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_er5fw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_3pp4y")
+
+[node name="Player" parent="." instance=ExtResource("1_y2pk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23483, -1.19209e-07, -1.84415)
+
+[node name="ProjectileManager" parent="." instance=ExtResource("2_4ne08")]
+projectile_data = ExtResource("3_l4tje")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2685, 2.78261, 3.6781)
+light_energy = 1.245
+light_size = 4.463
+spot_angle = 55.962
+
+[node name="Room" parent="." instance=ExtResource("4_0lfk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3462, 0, -3.24677)

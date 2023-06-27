@@ -300,10 +300,10 @@ animation_player = NodePath("AnimationPlayer")
 item_data = ExtResource("4_hb052")
 
 [node name="Muzzle" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.35184, 0.573759, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.556672, 0.0861729, 0)
 
 [node name="Armature" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342093, 0.24195, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.211661, 0.0267991, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "BODY"

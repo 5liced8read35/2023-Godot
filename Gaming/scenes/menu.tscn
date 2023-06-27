@@ -90,7 +90,7 @@ scale = Vector2(0.152667, 0.152667)
 texture = ExtResource("6_skl5r")
 
 [node name="Logo2" type="Sprite2D" parent="."]
-position = Vector2(912, 84)
+position = Vector2(912, 109)
 scale = Vector2(0.493421, 0.493421)
 texture = ExtResource("10_yyaht")
 

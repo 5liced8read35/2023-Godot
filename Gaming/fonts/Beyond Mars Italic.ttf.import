@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b7lgcmp4q40uu"
-path="res://.godot/imported/Beyond Mars Italic.ttf-510fe8f67724b58e924ca1d4f8531d06.fontdata"
+path="res://.godot/imported/Beyond Mars Italic.ttf-b15cf9c4a04e6c5d208acc79d5d2f203.fontdata"
 
 [deps]
 
-source_file="res://scenes/Beyond Mars Italic.ttf"
-dest_files=["res://.godot/imported/Beyond Mars Italic.ttf-510fe8f67724b58e924ca1d4f8531d06.fontdata"]
+source_file="res://fonts/Beyond Mars Italic.ttf"
+dest_files=["res://.godot/imported/Beyond Mars Italic.ttf-b15cf9c4a04e6c5d208acc79d5d2f203.fontdata"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://oum5wi20deqx"
-path="res://.godot/imported/usuzi.ttf-27253707d80b7dd29412797a0894d3ad.fontdata"
+path="res://.godot/imported/usuzi.ttf-199cb7016aa2cabce36ded8a66af966b.fontdata"
 
 [deps]
 
-source_file="res://usuzi.ttf"
-dest_files=["res://.godot/imported/usuzi.ttf-27253707d80b7dd29412797a0894d3ad.fontdata"]
+source_file="res://fonts/usuzi.ttf"
+dest_files=["res://.godot/imported/usuzi.ttf-199cb7016aa2cabce36ded8a66af966b.fontdata"]
 
 [params]
 

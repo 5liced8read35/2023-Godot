@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7gk5ara4junu"]
 
 [ext_resource type="Script" path="res://scenes/options_menu.gd" id="1_ss1j5"]
-[ext_resource type="FontFile" uid="uid://oum5wi20deqx" path="res://usuzi.ttf" id="2_me3d4"]
+[ext_resource type="FontFile" uid="uid://oum5wi20deqx" path="res://fonts/usuzi.ttf" id="2_me3d4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3

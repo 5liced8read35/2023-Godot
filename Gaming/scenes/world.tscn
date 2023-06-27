@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ceh01r8pyftte"]
+[gd_scene load_steps=10 format=3 uid="uid://ceh01r8pyftte"]
 
 [ext_resource type="PackedScene" uid="uid://kqsxuguvtlfw" path="res://scenes/player.tscn" id="1_y2pk6"]
 [ext_resource type="PackedScene" uid="uid://dnr147v6m4tsk" path="res://scenes/projectile_manager.tscn" id="2_4ne08"]
 [ext_resource type="Resource" uid="uid://cqq6s264brqh7" path="res://data/projectiles/762x39.tres" id="3_l4tje"]
-[ext_resource type="PackedScene" uid="uid://dnpuxn7m3d1t6" path="res://models/Room.glb" id="4_0lfk2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cnvxc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -57,12 +56,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23483, -1.19209e-07, -1.84
 
 [node name="ProjectileManager" parent="." instance=ExtResource("2_4ne08")]
 projectile_data = ExtResource("3_l4tje")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2685, 2.78261, 3.6781)
-light_energy = 1.245
-light_size = 4.463
-spot_angle = 55.962
-
-[node name="Room" parent="." instance=ExtResource("4_0lfk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3462, 0, -3.24677)
